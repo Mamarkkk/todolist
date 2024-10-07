@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:todolist_app/components/my_button.dart';
+import 'package:todolist_app/components/my_icon_btn.dart';
 import 'package:todolist_app/components/my_textfield.dart';
 import 'package:todolist_app/constant/constant.dart';
 
@@ -13,6 +16,11 @@ class SignInScreen extends StatefulWidget {
 class SignInScreenState extends State<SignInScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  //signin function here
+  void signInUser() async {
+    //add username and password tp firebase friday 11
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,31 +58,90 @@ class SignInScreenState extends State<SignInScreen> {
                   hintText: 'Enter your password',
                   obscureText: true,
                   labelText: 'Password'),
-                  
-                  const SizedBox(height: 15,),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text('Forgot password?', style: GoogleFonts.lato(fontSize: 18,color: Colors.blue),),
-                    ],
+              const SizedBox(
+                height: 15,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'Forgot password?',
+                    style: GoogleFonts.lato(fontSize: 18, color: Colors.blue),
                   ),
-                  const SizedBox(height: 25,),
-
-                  GestureDetector(
-                    onTap: (){},
-                    child: Container(
-                      padding: const EdgeInsets.all(25),
-                      margin: const EdgeInsetsDirectional.symmetric(horizontal: 10),
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Center(child: Text("Sign In", style: GoogleFonts.lato(color: Colors.white, fontSize: 16),)),
-                    )
+                ],
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              MyButton(
+                onTap: signInUser,
+                hinText: 'Sign In',
+              ),
+              MyButton(
+                onTap: signInUser,
+                hinText: 'Register',
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Row(
+                children: [
+                  Expanded(
+                      child: Divider(
+                    thickness: 035,
+                    color: Colors.grey,
+                  )),
+                  SizedBox(
+                    height: 3,
                   ),
-
-                  const Spacer(),
+                  Text(
+                    'Or Continue with',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  SizedBox(
+                    height: 3,
+                  ),
+                  Expanded(
+                      child: Divider(
+                    thickness: 035,
+                    color: Colors.grey,
+                  )),
+                ],
+              ),
+              const Spacer(),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  MyIconBtn(
+                    imagePath: 'assets/images/google_icon.png',
+                  ),
+                  SizedBox(
+                    width: 40,
+                  ),
+                  MyIconBtn(imagePath: 'assets/images/apple_icon.jpg,'),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  Text(
+                    'Not a member?',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Register Now.',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500, color: Colors.blue),
+                      )),
+                ],
+              )
             ],
           ),
         ),
