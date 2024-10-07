@@ -5,6 +5,7 @@ import 'package:todolist_app/components/my_button.dart';
 import 'package:todolist_app/components/my_icon_btn.dart';
 import 'package:todolist_app/components/my_textfield.dart';
 import 'package:todolist_app/constant/constant.dart';
+import 'package:todolist_app/screens/sign_up_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -134,7 +135,12 @@ class SignInScreenState extends State<SignInScreen> {
                     width: 5,
                   ),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignUpScreen()));
+                      },
                       child: const Text(
                         'Register Now.',
                         style: TextStyle(
